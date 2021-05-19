@@ -6,6 +6,7 @@ use App\Models\Product;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Cart;
+use App\Models\Category;
 
 class ShopComponent extends Component
 {
@@ -40,6 +41,9 @@ class ShopComponent extends Component
         }else{
             $products = Product::paginate($this->pagesize);
         }
-        return view('livewire.shop-component', ['products' => $products])->layout("layouts.base");
+
+        $categories = Category::all();
+
+        return view('livewire.shop-component', ['products' => $products, 'categories' => $categories])->layout("layouts.base");
     }
 }
