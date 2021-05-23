@@ -8,3 +8,17 @@ php artisan key:generate
 php artisan migrate --seed
 
 php artisan serve
+
+jika admin open dasboard category etc
+add vendor/laravel/fortify AttempToAuthenticate.php
+use Illuminate\Support\Facades\Auth;
+
+handle function
+ if(Auth::user()->utype === 'ADM'){
+                session(['utype'=>'ADM']);
+                return redirect(RouteServiceProvider::HOME);
+            }
+            else if(Auth::user()->utype === 'USR'){
+                session(['utype'=>'USR']);
+                return redirect(RouteServiceProvider::HOME);
+            }
