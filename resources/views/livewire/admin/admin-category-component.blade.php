@@ -37,7 +37,11 @@
                                         <td>{{ $category->id }}</td>
                                         <td>{{ $category->name }}</td>
                                         <td>{{ $category->slug }}</td>
-                                        <td></td>
+                                        <td>
+                                            <a href="{{ route('admin.editcategory', ['category_slug'=>$category->slug]) }}" >
+                                            <li class="fa fa-edit fa-2x"></li>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
